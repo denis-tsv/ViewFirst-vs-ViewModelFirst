@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2 MasterDetail_ViewModelF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. Common.ViewTypeResolver", "3. Common\3. Common.ViewTypeResolver.csproj", "{293EE59C-1DF7-4B75-8C58-6F5F93B00087}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.2 DialogWindow_ViewModelFirst_Improvements", "3.2 DialogWindowViewModelFirstImprovements\3.2 DialogWindow_ViewModelFirst_Improvements.csproj", "{F0FC13D1-AB07-4414-96A3-02328B0996C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.3 DialogWindow_ViewModelFirst_Async", "3.3 DialogWindowViewModelFirstAsync\3.3 DialogWindow_ViewModelFirst_Async.csproj", "{2132FC8F-A38B-45B8-8212-613C9EA2FB95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{293EE59C-1DF7-4B75-8C58-6F5F93B00087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{293EE59C-1DF7-4B75-8C58-6F5F93B00087}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{293EE59C-1DF7-4B75-8C58-6F5F93B00087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0FC13D1-AB07-4414-96A3-02328B0996C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0FC13D1-AB07-4414-96A3-02328B0996C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0FC13D1-AB07-4414-96A3-02328B0996C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0FC13D1-AB07-4414-96A3-02328B0996C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2132FC8F-A38B-45B8-8212-613C9EA2FB95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2132FC8F-A38B-45B8-8212-613C9EA2FB95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2132FC8F-A38B-45B8-8212-613C9EA2FB95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2132FC8F-A38B-45B8-8212-613C9EA2FB95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

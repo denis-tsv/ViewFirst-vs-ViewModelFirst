@@ -1,0 +1,25 @@
+﻿<framework:ChildWindow x:Class="_3._2_DialogWindowViewModelFirstImprovements.Views.UserDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:_3._2_DialogWindowViewModelFirstImprovements.ViewModels"
+        xmlns:framework="clr-namespace:_3._2_DialogWindowViewModelFirstImprovements.Views.Framework"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=viewModels:UserDetailsWindowViewModel, IsDesignTimeCreatable=True}"
+        Title="UserDetailsWindow" Height="300" Width="300"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Vertical">
+            <TextBlock Text="{Binding User.FirstName}" />
+            <TextBlock Text="{Binding User.LastName}" />
+        </StackPanel>
+        
+        <Button Grid.Row="1" Content="Close" Command="{Binding CloseCommand}" />
+    </Grid>
+</framework:ChildWindow>

@@ -2,9 +2,9 @@
 using System.Windows.Input;
 using Common;
 using Microsoft.Practices.Unity;
-using _3._1_DialogWindowViewModelFirstWindowManager.Views;
+using _3._3_DialogWindowViewModelFirstAsync.ViewModels.Framework;
 
-namespace _3._1_DialogWindowViewModelFirstWindowManager.ViewModels
+namespace _3._3_DialogWindowViewModelFirstAsync.ViewModels
 {
     public class UserListViewModel : ViewModel
     {
@@ -14,12 +14,9 @@ namespace _3._1_DialogWindowViewModelFirstWindowManager.ViewModels
 
         [Dependency]
         public UserProvider UserProvider { private get; set; }
-
+        
         [Dependency]
-        public IChildViewModelManager ChildViewModelManager { private get; set; }
-
-        [Dependency]
-        public IUnityContainer UnityContainer { get; set; }
+        public IViewModelFactory ViewModelFactory { private get; set; }
 
         public IEnumerable<User> Users
         {
@@ -38,16 +35,16 @@ namespace _3._1_DialogWindowViewModelFirstWindowManager.ViewModels
 
         public ICommand ShowDetailsCommand
         {
-            get { return _showDetailsCommand ?? (_showDetailsCommand = new SimpleCommand(OnShowDetails)); }
+            get { return _showDetailsCommand ?? (_showDetailsCommand = new SimpleCommand(arg => OnShowDetails(arg as User))); }
             
         }
 
-        private void OnShowDetails(object obj)
+        private async void OnShowDetails(User user)
         {
-            var detailsWindowViewModel = UnityContainer.Resolve<UserDetailsWindowViewModel>();
-            detailsWindowViewModel.User = (User) obj;
-            
-            ChildViewModelManager.Show(detailsWindowViewModel);
+            var detailsWindowViewModel = ViewModelFactory.Resolve<UserDetailsWindowViewModel>();
+            detailsWindowViewModel.User = user;
+
+            var result = await detailsWindowViewModel.ShowDialog();
         }
     }
 }

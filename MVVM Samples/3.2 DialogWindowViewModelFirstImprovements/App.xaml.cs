@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using Common;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
 using _3.Common.ViewTypeResolver;
-using _3._1_DialogWindowViewModelFirstWindowManager.ViewModels;
-using _3._1_DialogWindowViewModelFirstWindowManager.Views;
+using _3._2_DialogWindowViewModelFirstImprovements.ViewModels;
+using _3._2_DialogWindowViewModelFirstImprovements.ViewModels.Framework;
+using _3._2_DialogWindowViewModelFirstImprovements.Views;
 
-namespace _3._1_DialogWindowViewModelFirstWindowManager
+namespace _3._2_DialogWindowViewModelFirstImprovements
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -30,23 +25,25 @@ namespace _3._1_DialogWindowViewModelFirstWindowManager
             ServiceLocator.SetLocatorProvider(() => locator);
 
             _container.RegisterType<UserProvider>(new ContainerControlledLifetimeManager());
-            
+
             _container.RegisterType<IChildViewModelManager, ChildViewModelManager>(new ContainerControlledLifetimeManager());
+            
             _container.RegisterType<UserDetailsViewModel>(new ContainerControlledLifetimeManager());
             _container.RegisterType<UserListViewModel>(new ContainerControlledLifetimeManager());
-
+            _container.RegisterType<IViewModelFactory, ViewModelFactory>(new ContainerControlledLifetimeManager());
 
             var mappingResolver = new MappingViewTypeResolver();
             mappingResolver.RegisterTypeMapping<UserDetailsView, UserDetailsViewModel>();
             mappingResolver.RegisterTypeMapping<UserListView, UserListViewModel>();
             mappingResolver.RegisterTypeMapping<UserDetailsWindow, UserDetailsWindowViewModel>();
+            mappingResolver.RegisterTypeMapping<MainWindow, MainWindowViewModel>();
             _container.RegisterInstance<IViewTypeResolver>(mappingResolver);
+            
+            
             var mainVM = _container.Resolve<MainWindowViewModel>();
             mainVM.Initialize();
+            mainVM.Show();
 
-            var mainWindow = new MainWindow();
-            mainWindow.DataContext = mainVM;
-            mainWindow.Show();
         }
     }
 }

@@ -9,10 +9,12 @@ using Common;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
 using _3.Common.ViewTypeResolver;
-using _3._1_DialogWindowViewModelFirstWindowManager.ViewModels;
-using _3._1_DialogWindowViewModelFirstWindowManager.Views;
+using _3._3_DialogWindowViewModelFirstAsync.ViewModels;
+using _3._3_DialogWindowViewModelFirstAsync.ViewModels.Framework;
+using _3._3_DialogWindowViewModelFirstAsync.Views;
+using _3._3_DialogWindowViewModelFirstAsync.Views.Framework;
 
-namespace _3._1_DialogWindowViewModelFirstWindowManager
+namespace _3._3_DialogWindowViewModelFirstAsync
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -30,23 +32,24 @@ namespace _3._1_DialogWindowViewModelFirstWindowManager
             ServiceLocator.SetLocatorProvider(() => locator);
 
             _container.RegisterType<UserProvider>(new ContainerControlledLifetimeManager());
-            
+
             _container.RegisterType<IChildViewModelManager, ChildViewModelManager>(new ContainerControlledLifetimeManager());
+
             _container.RegisterType<UserDetailsViewModel>(new ContainerControlledLifetimeManager());
             _container.RegisterType<UserListViewModel>(new ContainerControlledLifetimeManager());
-
+            _container.RegisterType<IViewModelFactory, ViewModelFactory>(new ContainerControlledLifetimeManager());
 
             var mappingResolver = new MappingViewTypeResolver();
             mappingResolver.RegisterTypeMapping<UserDetailsView, UserDetailsViewModel>();
             mappingResolver.RegisterTypeMapping<UserListView, UserListViewModel>();
             mappingResolver.RegisterTypeMapping<UserDetailsWindow, UserDetailsWindowViewModel>();
+            mappingResolver.RegisterTypeMapping<MainWindow, MainWindowViewModel>();
             _container.RegisterInstance<IViewTypeResolver>(mappingResolver);
+
             var mainVM = _container.Resolve<MainWindowViewModel>();
             mainVM.Initialize();
+            mainVM.Show();
 
-            var mainWindow = new MainWindow();
-            mainWindow.DataContext = mainVM;
-            mainWindow.Show();
         }
     }
 }

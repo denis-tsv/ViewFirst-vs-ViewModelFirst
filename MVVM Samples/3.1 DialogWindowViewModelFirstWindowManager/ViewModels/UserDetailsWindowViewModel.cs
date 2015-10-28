@@ -11,7 +11,7 @@ namespace _3._1_DialogWindowViewModelFirstWindowManager.ViewModels
         private ICommand _closeCommand;
 
         [Dependency]
-        public IViewModelManager ViewModelManager { private get; set; }
+        public IChildViewModelManager ChildViewModelManager { private get; set; }
 
         public User User
         {
@@ -38,7 +38,7 @@ namespace _3._1_DialogWindowViewModelFirstWindowManager.ViewModels
 
             IsClosed = true;
 
-            ViewModelManager.Close(this);
+            ChildViewModelManager.Close(this);
 
             RaiseClosed();
         }

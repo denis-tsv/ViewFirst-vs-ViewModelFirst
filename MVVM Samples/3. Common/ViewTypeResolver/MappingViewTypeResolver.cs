@@ -13,14 +13,9 @@ namespace _3.Common.ViewTypeResolver
             return _typesMapping[viewModelType];
         }
 
-        public void RegisterTypeMapping(Type viewType, Type viewModelType)
+        public void RegisterTypeMapping<TView, TViewModel>() where TView : Control where TViewModel : ViewModel
         {
-            _typesMapping.Add(viewModelType, viewType);
-        }
-
-        public void RegisterTypeMapping<T1, T2>() where T1 : Control where T2 : ViewModel
-        {
-            _typesMapping.Add(typeof(T2), typeof(T1));
+            _typesMapping.Add(typeof(TViewModel), typeof(TView));
         }
     }
 }
