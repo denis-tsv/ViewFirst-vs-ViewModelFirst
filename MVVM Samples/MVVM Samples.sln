@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. MasterDetail_ViewModelFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1 MasterDetail_ViewModelFirst_UnityReactiveUI", "2.1 MasterDetailViewModelFirstUnityReactiveUI\2.1 MasterDetail_ViewModelFirst_UnityReactiveUI.csproj", "{D854E4DF-6126-44D8-BDA1-071ED9ACAC96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. DialogWindow_ViewModelFirst", "3. DialogWindowViewModelFirst\3. DialogWindow_ViewModelFirst.csproj", "{D70212F5-F37D-4C36-9E3B-33C093E1C776}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.0 DialogWindow_ViewModelFirst", "3. DialogWindowViewModelFirst\3.0 DialogWindow_ViewModelFirst.csproj", "{D70212F5-F37D-4C36-9E3B-33C093E1C776}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1 DialogWindow_ViewModelFirst_WindowManager", "3.1 DialogWindowViewModelFirstWindowManager\3.1 DialogWindow_ViewModelFirst_WindowManager.csproj", "{EA3F1F92-A39C-485F-8D20-F978CF23E8F4}"
 EndProject
